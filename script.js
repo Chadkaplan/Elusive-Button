@@ -28,9 +28,17 @@ function setButtonPosition(left, top) {
     if(distanceFromCenter(left, windowBox.left, buttonBox.width) < 0){
         left = windowBox.right - buttonBox.width - offset
     }
+    if(distanceFromCenter(left, windowBox.right, buttonBox.width) > 0){
+        left = windowBox.left - offset
+    }
+    if(distanceFromCenter(top, windowBox.top, buttonBox.height) < 0){
+        top = windowBox.bottom - buttonBox.height - offset
+    }
+    if(distanceFromCenter(top, windowBox.top, buttonBox.height) > 0){
+        top = windowBox.top - offset
+    }
     evilButton.style.left = `${left}px`
     evilButton.style.top = `${top}px`
-    console.log(x,y)
 }
 
 function distanceFromCenter(boxPosition, mousePosition, boxSize) {
